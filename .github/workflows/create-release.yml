@@ -37,3 +37,5 @@ jobs:
       run: echo "SHORT_COMMIT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
     - name: Create Release
       run: gh release create ${{ env.SHORT_COMMIT_SHA }} -t ${{ env.SHORT_COMMIT_SHA }} -n "Note that this release is automatically generated. No testing has been done." --generate-notes "/home/runner/work/infojson-metadata-add/infojson-metadata-add/InfoJsonMetadata-Win-x86.exe" "/home/runner/work/infojson-metadata-add/infojson-metadata-add/InfoJsonMetadata-Win-x64.exe" "/home/runner/work/infojson-metadata-add/infojson-metadata-add/InfoJsonMetadata-Win-ARM64.exe" "/home/runner/work/infojson-metadata-add/infojson-metadata-add/InfoJsonMetadata-Linux-x64" "/home/runner/work/infojson-metadata-add/infojson-metadata-add/InfoJsonMetadata-Linux-ARM64" "/home/runner/work/infojson-metadata-add/infojson-metadata-add/InfoJsonMetadata-macOS-x64" "/home/runner/work/infojson-metadata-add/infojson-metadata-add/InfoJsonMetadata-macOS-ARM64"
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
